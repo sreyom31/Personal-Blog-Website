@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 var _ = require('lodash');
-const router = require('./routes');
+const router = require('./routes/homeRoutes');
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true, useUnifiedTopology: true});
 
-app.get('/', router);
+app.use(router);
 
 app.listen(80, function() {
   console.log("Server started on port 80");
