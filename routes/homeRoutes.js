@@ -14,10 +14,12 @@ const aboutRoutes = require("./aboutRoutes");
 const composeRoutes = require('./composeRoutes');
 const contactRoutes = require('./contactRoutes');
 const postRoutes = require('./postRoutes');
+const authRoutes = require('./authRoutes');
 
 router.use(aboutRoutes);
 router.use(composeRoutes);
 router.use(contactRoutes);
 router.use(postRoutes);
+router.use(authRoutes);
 
 module.exports = router;
