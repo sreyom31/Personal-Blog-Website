@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 var _ = require('lodash');
 const cookieParser = require('cookie-parser');
 const router = require('./routes/homeRoutes');
+const authMiddleware = require('./middlewares/authMiddleware');
 
 const app = express();
 
@@ -25,6 +26,7 @@ mongoose.set('useCreateIndex', true);
 
 
 // Routes
+app.get('*', authMiddleware.checkUser);
 app.use(router);
 
 app.listen(80, function() {
